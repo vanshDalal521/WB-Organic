@@ -19,13 +19,19 @@ async function bootstrap() {
   app.use(compression());
   app.use(cookieParser());
 
+  const defaultOrigins = [
+    'http://localhost:3001',
+    'http://localhost:3002',
+    'http://localhost:8081',
+    'http://localhost:8082',
+  ];
+  const envOrigins = (configService.get('ALLOWED_ORIGINS') || '')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean);
+
   app.enableCors({
-    origin: [
-      'http://localhost:3001',
-      'http://localhost:3002',
-      'http://localhost:8081',
-      'http://localhost:8082',
-    ],
+    origin: [...defaultOrigins, ...envOrigins],
     credentials: true,
   });
 
