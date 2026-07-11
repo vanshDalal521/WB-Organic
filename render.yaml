@@ -32,4 +32,7 @@ services:
       # Include https://<your-app>.vercel.app and https://*.vercel.app for previews.
       - key: ALLOWED_ORIGINS
         value: https://your-app.vercel.app,https://*.vercel.app
-    preDeployCommand: npx prisma db push --skip-generate && npm run db:seed
+    # NOTE: free tier does not support preDeployCommand.
+    # After the first deploy, open the wb-api service Shell and run:
+    #   npx prisma db push --skip-generate
+    #   npm run db:seed
