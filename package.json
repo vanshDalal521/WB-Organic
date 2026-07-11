@@ -29,6 +29,7 @@
     "docker:logs": "docker-compose logs -f"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "5.15.12",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "concurrently": "^9.0.0",
