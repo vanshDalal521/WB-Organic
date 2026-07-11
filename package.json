@@ -41,7 +41,7 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "npm@10.9.0",
+  "packageManager": "npm@11.16.0",
   "dependencies": {
     "@nestjs/event-emitter": "^3.1.0"
   }

@@ -57,3 +57,6 @@ apps/api/prisma/migrations/
 # Temp
 tmp/
 temp/
+
+# lockfile disabled for Netlify fresh resolution
+package-lock.json
