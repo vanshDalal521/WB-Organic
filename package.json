@@ -1,0 +1,48 @@
+{
+  "name": "wb-organic-dairy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WB Organic Dairy - Pure by Nature, Healthy by Choice",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:customer": "npm run start --workspace=apps/customer-mobile",
+    "dev:delivery": "npm run start --workspace=apps/delivery-mobile",
+    "dev:admin": "npm run dev --workspace=apps/admin-web",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:admin\"",
+    "build": "npm run build --workspace=apps/api && npm run build --workspace=apps/admin-web",
+    "build:api": "npm run build --workspace=apps/api",
+    "build:admin": "npm run build --workspace=apps/admin-web",
+    "test": "npm run test --workspace=apps/api",
+    "test:watch": "npm run test:watch --workspace=apps/api",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "turbo run typecheck",
+    "db:migrate": "npm run db:migrate --workspace=apps/api",
+    "db:seed": "npm run db:seed --workspace=apps/api",
+    "db:studio": "npm run db:studio --workspace=apps/api",
+    "db:reset": "npm run db:reset --workspace=apps/api",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "concurrently": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.4.0",
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "npm@10.9.0",
+  "dependencies": {
+    "@nestjs/event-emitter": "^3.1.0"
+  }
+}
