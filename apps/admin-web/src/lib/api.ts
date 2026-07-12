@@ -1,4 +1,11 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/v1";
+function getBaseUrl(): string {
+  if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+    return "http://localhost:3000/api/v1";
+  }
+  return "/api/v1";
+}
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || getBaseUrl();
 
 interface PaginationMeta {
   total: number;
